@@ -1,0 +1,21 @@
+.login-wrap {
+    height: 100%;
+}
+
+.header-login {
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 3px solid #316386;
+
+    .h-title {
+        font-weight: bold;
+        color: #316386;
+    }
+}
+
+:host  ::ng-deep .panel-login {
+    width: 450px;
+}

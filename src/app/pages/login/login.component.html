@@ -1,0 +1,31 @@
+
+<div class="p-d-flex p-jc-center p-ai-center login-wrap">
+
+    <header class="p-d-flex p-ai-center header-login">
+        <img src="../../../assets/logo_pucminas.png" height="42" class="p-mx-3">
+        <span class="h-title p-pl-2">SIGO - Sistema Integrado de Gestão e Operação</span>
+    </header>
+
+    <p-panel header="Login" styleClass="panel-login">
+        <div class="p-grid p-fluid p-p-2">
+            <div class="p-col-12 p-md-12">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input id="float-input" type="text" [(ngModel)]="username" placeholder="Usuário" pInputText>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-12">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                    <input id="float-input" type="password" [(ngModel)]="password" placeholder="Senha" pInputText>
+                </div>
+            </div>
+        </div>
+        <ng-template pTemplate="footer">
+            <div class="p-d-flex p-jc-end p-p-1">
+                <button pButton label="Login" (click)="doLogin()" class="p-button-rounded"></button>
+            </div>
+        </ng-template>
+    </p-panel>
+
+</div>

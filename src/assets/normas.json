@@ -1,0 +1,22 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"code": "ABNT NBR 12984:2009",
+			"title": "Nãotecido - Determinação da massa por unidade de área",
+			"status": "Vigente"
+		},
+		{
+			"id": "1001",
+			"code": "ABNT NBR 13481:2009",
+			"title": "Nãotecido - Determinação do tempo de penetração de líquido",
+			"status": "Vigente"
+		},
+		{
+			"id": "1002",
+			"code": "ABNT NBR 13843:2009",
+			"title": "Artigo têxtil hospitalar - Compressa de gaze - Requisitos e métodos de ensaio",
+			"status": "Vigente"
+		}
+	]
+}

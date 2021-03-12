@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="sigo-page-content">
+
+    <p-panel header="Adicionar ou alterar Norma">
+        <div class="p-grid p-fluid">
+            <div class="p-field p-col-3">
+                <label for="inputtext">Código</label>
+                <input type="text" pInputText id="code" [(ngModel)]="norma.code" required />
+                <small class="p-error" *ngIf="submitted && !norma.code">Código is required.</small>
+
+            </div>
+            <div class="p-field p-col-9">
+                <label for="inputtext">Título</label>
+                <input type="text" pInputText id="title" [(ngModel)]="norma.title" required autofocus />
+                <small class="p-error" *ngIf="submitted && !norma.title">Título is required.</small>
+            </div>
+        </div>
+
+        <div class="p-grid p-fluid">
+            <div class="p-field p-col-6">
+                <label for="normaStatus">Status</label>
+                <p-dropdown [(ngModel)]="norma.status" inputId="normaStatus" [options]="statuses" placeholder="Selecione">
+                    <ng-template let-option pTemplate="item">
+                        <span [class]="'product-badge status-' + option.value">{{option.label}}</span>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="inputtext">Data de publicação</label>
+                <p-calendar [(ngModel)]="norma.publicationDate"></p-calendar>
+                <small class="p-error" *ngIf="submitted && !norma.publicationDate">Data de publicação is required.</small>
+            </div>
+        </div>
+
+        <div class="p-grid p-fluid">
+            <div class="p-field p-col-12">
+                <label for="inputtext">Link da norma</label>
+                <input type="text" pInputText id="link" [(ngModel)]="norma.link" required autofocus />
+                <small class="p-error" *ngIf="submitted && !norma.link">Título is required.</small>
+            </div>
+        </div>
+
+        <div class="p-grid p-fluid">
+            <div class="p-field p-col-12">
+                <label for="description">Descrição</label>
+                <textarea id="description" pInputTextarea [(ngModel)]="norma.description" required rows="3" cols="20"></textarea>
+            </div>
+        </div>
+
+        <div class="p-d-flex p-jc-end">
+            <button pButton pRipple label="Voltar" icon="pi pi-angle-left" class="p-button-text" routerLink="/normas"></button>
+            <button pButton pRipple label="Salvar" class="p-button-primary" (click)="save()"></button>
+        </div>
+    </p-panel>
+
+</div>
