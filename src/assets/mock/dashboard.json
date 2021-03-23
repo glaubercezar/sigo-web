@@ -1,0 +1,34 @@
+{
+	"data": [
+		{
+			"title": "Produção diária",
+			"items": [
+				{
+					"id": "status",
+					"label": "Status",
+					"value": "Ativo"
+				},
+				{
+					"id": "produced_items",
+					"label": "Tecidos fabricados/separados",
+					"value": "30"
+				},
+				{
+					"id": "stock_level",
+					"label": "Nível do estoque",
+					"value": "45%"
+				}
+			]
+		},
+		{
+			"title": "Outros",
+			"items": [
+				{
+					"id": "active_consultancies",
+					"label": "Consultorias/Acessorias",
+					"value": "5 Ativos"
+				}
+			]
+		}
+	]
+}

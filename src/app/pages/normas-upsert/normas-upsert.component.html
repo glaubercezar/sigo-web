@@ -1,57 +1,82 @@
 <app-header></app-header>
 
+<p-toast></p-toast>
+
 <div class="sigo-page-content">
 
-    <p-panel header="Adicionar ou alterar Norma">
+    <p-panel header="Detalhes da Norma">
         <div class="p-grid p-fluid">
             <div class="p-field p-col-3">
-                <label for="inputtext">Código</label>
-                <input type="text" pInputText id="code" [(ngModel)]="norma.code" required />
-                <small class="p-error" *ngIf="submitted && !norma.code">Código is required.</small>
+                <label for="code">Norma</label>
+                <input type="text" pInputText id="code" [(ngModel)]="norm.code" required />
+                <small class="p-error" *ngIf="submitted && !norm.code">Código is required.</small>
 
             </div>
             <div class="p-field p-col-9">
-                <label for="inputtext">Título</label>
-                <input type="text" pInputText id="title" [(ngModel)]="norma.title" required autofocus />
-                <small class="p-error" *ngIf="submitted && !norma.title">Título is required.</small>
+                <label for="title">Título</label>
+                <input type="text" pInputText id="title" [(ngModel)]="norm.title" required autofocus />
+                <small class="p-error" *ngIf="submitted && !norm.title">Título is required.</small>
             </div>
         </div>
 
         <div class="p-grid p-fluid">
-            <div class="p-field p-col-6">
+            <div class="p-field p-col-4">
+                <label for="committee">Comitê técnico</label>
+                <input type="text" pInputText id="committee" [(ngModel)]="norm.committee" required autofocus />
+                <small class="p-error" *ngIf="submitted && !norm.committee">Comitê is required.</small>
+            </div>
+            <div class="p-field p-col-4">
+                <label for="inputtext">Data de publicação</label>
+                <p-calendar [(ngModel)]="norm.publicationDate"></p-calendar>
+                <small class="p-error" *ngIf="submitted && !norm.publicationDate">Data de publicação is required.</small>
+            </div>
+            <div class="p-field p-col-4">
                 <label for="normaStatus">Status</label>
-                <p-dropdown [(ngModel)]="norma.status" inputId="normaStatus" [options]="statuses" placeholder="Selecione">
+                <p-dropdown [(ngModel)]="norm.status" inputId="normaStatus" [options]="statuses" placeholder="Selecione">
                     <ng-template let-option pTemplate="item">
-                        <span [class]="'product-badge status-' + option.value">{{option.label}}</span>
+                        <span>{{option.label}}</span>
                     </ng-template>
                 </p-dropdown>
             </div>
-            <div class="p-field p-col-6">
-                <label for="inputtext">Data de publicação</label>
-                <p-calendar [(ngModel)]="norma.publicationDate"></p-calendar>
-                <small class="p-error" *ngIf="submitted && !norma.publicationDate">Data de publicação is required.</small>
+        </div>
+
+        <div class="p-grid p-fluid">
+            <div class="p-field p-col-8">
+                <label for="inputtext">Arquivo (Link externo ou upload)</label>
+                <input type="text" pInputText id="link" [(ngModel)]="norm.link" required autofocus />
+                <small class="p-error" *ngIf="submitted && !norm.link">Título is required.</small>
+            </div>
+            <div class="p-field p-col-4 p-d-flex p-ai-end">
+                <p-fileUpload mode="basic" name="myfile[]" url="./upload.php" chooseLabel="Selecionar"></p-fileUpload>
             </div>
         </div>
 
         <div class="p-grid p-fluid">
-            <div class="p-field p-col-12">
-                <label for="inputtext">Link da norma</label>
-                <input type="text" pInputText id="link" [(ngModel)]="norma.link" required autofocus />
-                <small class="p-error" *ngIf="submitted && !norma.link">Título is required.</small>
-            </div>
-        </div>
-
-        <div class="p-grid p-fluid">
-            <div class="p-field p-col-12">
+            <div class="p-field p-col-12 p-mb-0">
                 <label for="description">Descrição</label>
-                <textarea id="description" pInputTextarea [(ngModel)]="norma.description" required rows="3" cols="20"></textarea>
+                <textarea id="description" pInputTextarea [(ngModel)]="norm.description" required rows="3" cols="20"></textarea>
             </div>
         </div>
+    </p-panel>
+    <br>
+    <p-panel header="Área de negócio">
+        <div class="p-grid p-fluid">
+            <div class="p-field p-col-6 p-mb-0">
+                <label for="areaName">Nome</label>
+                <input type="text" pInputText id="areaName" [(ngModel)]="norm.areaName" required />
+                <small class="p-error" *ngIf="submitted && !norm.areaName">Código is required.</small>
 
-        <div class="p-d-flex p-jc-end">
-            <button pButton pRipple label="Voltar" icon="pi pi-angle-left" class="p-button-text" routerLink="/normas"></button>
-            <button pButton pRipple label="Salvar" class="p-button-primary" (click)="save()"></button>
+            </div>
+            <div class="p-field p-col-6 p-mb-0">
+                <label for="areaDepartment">Departamento</label>
+                <p-dropdown [options]="departments" inputId="areaDepartment" [(ngModel)]="norm.areaDepartment" optionLabel="label" optionValue="value"></p-dropdown>
+                <small class="p-error" *ngIf="submitted && !norm.areaDepartment">Departamento is required.</small>
+            </div>
         </div>
     </p-panel>
 
+    <div class="p-d-flex p-jc-end p-mt-4">
+        <button pButton pRipple label="Voltar" icon="pi pi-angle-left" class="p-button-text" routerLink="/normas"></button>
+        <button pButton pRipple label="Salvar" class="p-button-primary" (click)="save()"></button>
+    </div>
 </div>

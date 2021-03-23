@@ -37,7 +37,9 @@
                     <td>{{ norma.status }}</td>
                     <td class="p-d-flex p-jc-end">
                         <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary p-mr-2"
-                            [routerLink]="['/normas/edit', norma.id]"></button>
+                            [routerLink]="['/normas/edit', norma.id]" title="Editar/Visualizar"></button>
+                        <a pButton pRipple icon="pi pi-external-link" class="p-button-rounded p-button-primary p-mr-2"
+                            [href]="norma.link" title="Abrir arquivo" target="_blank"></a>
                         <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteNorma(norma)"></button>
                     </td>
                 </tr>

@@ -17,6 +17,7 @@ import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { CalendarModule } from 'primeng/calendar';
+import { FileUploadModule } from 'primeng/fileupload';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 
@@ -57,7 +58,8 @@ import { ConsultoriasComponent } from './pages/consultorias/consultorias.compone
     ToastModule,
     DialogModule,
     ConfirmDialogModule,
-    CalendarModule
+    CalendarModule,
+    FileUploadModule
   ],
   providers: [
     MessageService, ConfirmationService
