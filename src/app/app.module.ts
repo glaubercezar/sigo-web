@@ -25,7 +25,7 @@ import { MessageService } from 'primeng/api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
-import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NormasComponent } from './pages/normas/normas.component';
 import { NormasUpsertComponent } from './pages/normas-upsert/normas-upsert.component';
@@ -35,7 +35,7 @@ import { ConsultoriasComponent } from './pages/consultorias/consultorias.compone
   declarations: [
     AppComponent,
     LoginComponent,
-    HeaderComponent,
+    SidebarComponent,
     HomeComponent,
     ConsultoriasComponent,
     NormasComponent,

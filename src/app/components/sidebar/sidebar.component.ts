@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class SidebarComponent implements OnInit {
 
   constructor( private service: AppService ) { }
 
