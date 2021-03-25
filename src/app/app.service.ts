@@ -1,34 +1,51 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment }  from '../environments/environment';
 import { Norma } from './_interfaces/norma';
+
+export interface IAuth {
+  loggedIn: boolean;
+  token: string
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
 
-  auth = true;
+  private authSubject: BehaviorSubject<IAuth>;
+  auth: Observable<IAuth>;
 
-  constructor( private router: Router, private http: HttpClient ) {
-
-    const logged = localStorage.getItem("auth");
-    this.auth = !!logged;
+  constructor( private http: HttpClient ) {
+    const token = localStorage.getItem("auth");
+    this.authSubject = new BehaviorSubject<IAuth>({
+      loggedIn: !!token,
+      token: token
+    });
+    this.auth = this.authSubject.asObservable();
   }
 
-  login() {
-    localStorage.setItem("auth", "true");
-    //this.router.navigate(['/home']);
-    window.location.href = "/home";
+  public get authValue(): IAuth {
+    return this.authSubject.getValue();
+  }
 
+  login(username, password): Observable<void> {
+    return this.http.post(`${environment.apiUrl}/api/v1/login`, { username, password })
+        .pipe(map((res: any) => {
+            // guarda token no local storage para uso futuro ao recarregar página
+            localStorage.setItem('auth', res.token);
+            // atualiza objeto reativo
+            this.authSubject.next({
+              loggedIn: true, token: res.token
+            });
+        }));
   }
 
   logout() {
     localStorage.removeItem("auth");
-    //this.router.navigate(['/']);
     window.location.href = "/";
   }
 

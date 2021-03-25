@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppService, IAuth } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sigo-web';
+
+  logged = false;
+
+  constructor(service: AppService) {
+    service.auth.subscribe((auth:IAuth) => {
+      this.logged = auth.loggedIn;
+    });
+  }
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 
@@ -30,6 +30,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { NormasComponent } from './pages/normas/normas.component';
 import { NormasUpsertComponent } from './pages/normas-upsert/normas-upsert.component';
 import { ConsultoriasComponent } from './pages/consultorias/consultorias.component';
+
+import { ErrorInterceptor, JwtInterceptor } from './_helpers';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,10 @@ import { ConsultoriasComponent } from './pages/consultorias/consultorias.compone
     FileUploadModule
   ],
   providers: [
-    MessageService, ConfirmationService
+    MessageService,
+    ConfirmationService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

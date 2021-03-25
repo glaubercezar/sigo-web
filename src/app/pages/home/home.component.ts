@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   getDashboardData() {
     this.service.getDashboard().subscribe((data: any) => {
       this.resume = data;
-      console.log('recebido');
     });
   }
 
