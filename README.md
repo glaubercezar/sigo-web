@@ -1,5 +1,12 @@
 # SigoWeb
 
+Front-end da POC do projeto SIGO (Sistema Integrado de Gestão e Operação).
+
+Para fins de validação da POC, contempla as funcionalidades:
+
+- Painel de resumo da produção diária
+- Gestão de normas técnicas
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
 ## Development server

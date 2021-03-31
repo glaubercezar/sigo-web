@@ -7,7 +7,7 @@
                 <div class="block">
                     <div class="title">{{ item.label }}</div>
                     <div class="value">
-                        <div *ngIf="item.id === 'status'" class="status-indicator"></div>
+                        <div *ngIf="item.id === 'status'" class="status-indicator" [ngClass]="{'stoped': item.value == 'Parado'}"></div>
                         <span>{{ item.value }}</span>
                     </div>
                 </div>
